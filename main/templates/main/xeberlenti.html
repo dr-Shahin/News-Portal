@@ -1,0 +1,173 @@
+{% extends 'main/layout2.html' %}
+{% block content %}
+{% load static %}
+
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/shortcuts/infinite.min.js"></script>
+	
+<div class="container">
+	<div class="bg0 flex-wr-sb-c p-rl-20 p-tb-8">
+		<div class="f2-s-1 p-r-30 size-w-0 m-tb-6 flex-wr-s-c">
+			<span class="text-uppercase cl2 p-r-8">
+				Son Dəqiqə:
+			</span>
+			<span class="dis-inline-block cl6 slide100-txt pos-relative size-w-0" data-in="fadeInDown" data-out="fadeOutDown">
+
+				{% for x in sondeq3 %}
+				<span class="dis-inline-block slide100-txt-item animated visible-false">{{x.basliq | truncatechars:46 }}</span>
+				{% endfor %}
+			</span>
+		</div>
+
+		<div class="pos-relative size-a-2 bo-1-rad-22 of-hidden bocl11 m-tb-6">
+			<input class="f1-s-1 cl6 plh9 s-full p-l-25 p-r-45" type="text" name="search" placeholder="Axtar">
+			<button class="flex-c-c size-a-1 ab-t-r fs-20 cl2 hov-cl10 trans-03">
+				<i class="zmdi zmdi-search"></i>
+			</button>
+		</div>
+	</div>
+</div>
+
+
+
+
+<section class="bg0">
+	<div class="container">
+		<div class="row m-rl--1">
+			<div class="col-md-6 p-rl-1 p-b-2">
+	
+
+				{% for x in blok %}
+					<div class="bg-img1 size-a-3 how1 pos-relative" style="background-image: url({{x.foto}});">
+						<a href="{% url 'page' x.id %}" class="dis-block how1-child1 trans-03"></a>
+						<div class="flex-col-e-s s-full p-rl-25 p-tb-20">
+							<a href="{% url 'kateqoriya' x.id %}" class="dis-block how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">{{x.kateqoriya}}</a>
+							<h3 class="how1-child2 m-t-14 m-b-10">
+								<a href="{% url 'page' x.id %}" class="how-txt1 size-a-6 f1-l-1 cl0 hov-cl10 trans-03">{{x.basliq | truncatechars:46 | truncatechars:46}}</a>
+							</h3>
+							<span class="how1-child2">
+								<span class="f1-s-4 cl11">{{x.basliq | truncatechars:46 | truncatechars:46}}</span>
+								<span class="f1-s-3 cl11 m-rl-3">
+									-
+								</span>
+								<span class="f1-s-3 cl11">{{x.tarix}}</span>
+							</span>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+
+				<div class="col-md-6 p-rl-1">
+					<div class="row m-rl--1">
+
+					{% for x in blok3 %}
+						<div class="col-12 p-rl-1 p-b-2">
+							<div class="bg-img1 size-a-4 how1 pos-relative" style="background-image: url({{x.foto}});">
+								<a href="{% url 'page' x.id %}" class="dis-block how1-child1 trans-03"></a>
+
+								<div class="flex-col-e-s s-full p-rl-25 p-tb-24">
+									<a href="{% url 'kateqoriya' x.id %}" class="dis-block how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">{{x.kateqoriya}}</a>
+
+									<h3 class="how1-child2 m-t-14">
+										<a href="{% url 'page' x.id %}" class="how-txt1 size-a-7 f1-l-2 cl0 hov-cl10 trans-03">{{x.basliq | truncatechars:46 | truncatechars:46}}</a>
+									</h3>
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+
+
+					{% for x in blok4 %}
+						<div class="col-sm-6 p-rl-1 p-b-2">
+							<div class="bg-img1 size-a-5 how1 pos-relative" style="background-image: url({{x.foto}});">
+								<a href="{% url 'page' x.id %}" class="dis-block how1-child1 trans-03"></a>
+
+								<div class="flex-col-e-s s-full p-rl-25 p-tb-20">
+									<a href="#" class="dis-block how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">{{x.kateqoriya}}</a>
+									<h3 class="how1-child2 m-t-14">
+										<a href="{% url 'page' x.id %}" class="how-txt1 size-h-1 f1-m-1 cl0 hov-cl10 trans-03">{{x.basliq | truncatechars:46 | truncatechars:46}}</a>
+									</h3>
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+<!-- Latest --> 
+<section class="bg0 p-t-60 p-b-40">
+	<div class="container">
+		<div class="how2 how2-cl4 flex-s-c">
+			<h3 class="f1-m-2 cl3 tab01-title">
+				Xəbər Lenti
+			</h3>
+		</div>
+		<div class="row p-t-35 infinite-container">
+
+
+			{% for x in numbers %}
+			<div class="col-sm-6 col-md-4 infinite-item">
+				<!-- Item latest -->	
+				<div class="m-b-45">
+					<a href="{% url 'page' x.id %}" class="wrap-pic-w hov1 trans-03">
+						<img src="{{x.foto}}" alt="{{x.basliq}}">
+					</a>
+					<div class="p-t-16">
+						<h5 class="p-b-5">
+							<a target="_blank" href="{% url 'page' x.id %}" class="f1-m-3 cl2 hov-cl10 trans-03">
+								{{x.basliq | truncatechars:46 | truncatechars:46}} 
+							</a>
+						</h5>
+						<span class="cl8">
+							<a href="#" class="f1-s-4 cl8 hov-cl10 trans-03">
+								{{x.kateqoriya}}
+							</a>
+							<span class="f1-s-3 m-rl-3">
+								-
+							</span>
+							<span class="f1-s-3">
+								{{x.tarix}}
+							</span>
+						</span>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+
+		</div>
+
+				{% if numbers.has_next %}
+					<a class="infinite-more-link" href="?page={{ numbers.next_page_number }}">More</a>
+				{% endif %}
+
+				<div class="loading" style="display: none;">
+					Loading...
+				</div>
+
+	</div>
+</section>
+
+
+<script>
+    var infinite = new Waypoint.Infinite({
+      element: $('.infinite-container')[0],
+      onBeforePageLoad: function () {
+        $('.loading').show();
+      },
+      onAfterPageLoad: function ($items) {
+        $('.loading').hide();
+      }
+    });
+  </script>
+
+						
+						
+ {% endblock %}
+ 

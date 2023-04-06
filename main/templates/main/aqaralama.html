@@ -1,0 +1,363 @@
+
+<b>AzerNews.ml</b> xəbər saytı 2022-ci ilin avqust ayından fəaliyyət göstərir. 
+                    Saytın yaradılmasında məqsəd dünyada və ölkədə baş verən ən vacib və maraqlı xəbərləri geniş 
+                    auditoriyaya təqdim etməkdir.
+
+xxxxxxxxx 24 saat ərzində, Azərbaycan və rus dillərində, ölkədə və dünyada baş verən ən aktual 
+və maraqlı hadisələr barədə operativ xəbərlər, oxucuları və cəmiyyəti maraqlandıran 
+suallara cavablar, analitik məqalələr, foto və videohesabatlar hazırlayır.
+
+
+Düzgün seçilmiş informasiya siyasəti, müasir dizaynı, mobil platformalarda və aparıcı sosial 
+                şəbəkələrdə təmsil olunması nəticəsində bu gün Oxu.Az Azərbaycanın media məkanında öz 
+                layiqli yerini tutub və ən geniş oxucu auditoriyasına malik xəbər portallarından birinə çevrilib.
+
+
+
+
+
+
+
+
+<!-- Lastest News 2col  -->
+<section class="bg0 p-t-60 p-b-35">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8 p-b-20">
+                <div class="how2 how2-cl4 flex-s-c m-r-10 m-r-0-sr991">
+                    <h3 class="f1-m-2 cl3 tab01-title"> Xəbər Lenti</h3>
+                </div>
+                <div class="row p-t-35v infinite-container">
+
+                    {% for x in blok8 %}
+                    <div class="col-sm-6 p-r-25 p-r-15-sr991 infinite-item">
+                        <!-- Item latest -->
+                        <div class="m-b-45">
+                            <a  href="page/{{x.id}}"  class="wrap-pic-w hov1 trans-03">
+								<img src="{{x.foto}}" alt="IMG"></a>
+                            <div class="p-t-16">
+                                <h5 class="p-b-5">
+									<a target="_blank" href="page/{{x.id}}" class="f1-m-3 cl2 hov-cl10 trans-03">{{x.basliq | truncatechars:46 | truncatechars:46}}</a>
+                                </h5>
+                                <span class="cl8">
+                                    <a href="#" class="f1-s-4 cl8 hov-cl10 trans-03">{{x.kateqoriya}}</a>
+                                    <span class="f1-s-3 m-rl-3">
+                                        -
+                                    </span>
+                                    <span class="f1-s-3">{{x.tarix}}</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+			
+                </div>
+
+				
+
+				{% if numbers.has_next %}
+    				<a class="infinite-more-link" href="?page={{ numbers.next_page_number }}">More</a>
+  				{% endif %}
+
+				<div class="loading" style="display: none;">
+					Loading...
+				</div>
+
+				
+            </div>
+			
+
+
+
+            <div class="col-md-10 col-lg-4">
+                <div class="p-l-10 p-rl-0-sr991 p-b-20">
+
+					<!-- Subscribe -->
+                    <div class="bg10 p-rl-35 p-t-28 p-b-35 m-b-55">
+                        <h5 class="f1-m-5 cl0 p-b-10">Abune olun </h5>
+                        <p class="f1-s-1 cl0 p-b-25">Ən son yeniliklərdən anında xəbərdar olun.</p>
+
+
+
+                        <form class="size-a-9 pos-relative">
+                            <input class="s-full f1-m-6 cl6 plh9 p-l-20 p-r-55" type="text" name="email" placeholder="Email">
+
+                            <button class="size-a-10 flex-c-c ab-t-r fs-16 cl9 hov-cl10 trans-03">
+                                <i class="fa fa-arrow-right"></i>
+                            </button>
+                        </form>
+
+                    </div>
+                    
+                    <!-- Tag -->
+                    <div class="p-b-55">
+                        <div class="how2 how2-cl4 flex-s-c m-b-30">
+                            <h3 class="f1-m-2 cl3 tab01-title">Tags</h3>
+                        </div>
+                        <div class="flex-wr-s-s m-rl--5">
+                            {% for x in blok01 %}
+								<a href="{% url 'kateqoriya' x.id %}" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
+									{{x.kateqoriya}}</a>
+							{% endfor %}
+                        </div>	
+                    </div>
+
+
+
+
+
+                    <!-- Video -->
+					<div class="p-b-55">
+						<div class="how2 how2-cl4 flex-s-c m-b-35">
+							<h3 class="f1-m-2 cl3 tab01-title">Trend videolar</h3>
+						</div>
+						<div>
+							<div class="wrap-pic-w pos-relative">
+								<img src="https://i.pinimg.com/originals/3c/d1/e9/3cd1e9b8fa145b1a4d3ef24ae5e6227a.jpg" alt="IMG">
+								<button class="s-full ab-t-l flex-c-c fs-32 cl0 hov-cl10 trans-03" data-toggle="modal" data-target="#modal-video-01">
+									<span class="fab fa-youtube"></span>
+								</button>
+							</div>
+							<div class="p-tb-16 p-rl-25 bg3">
+								<h5 class="p-b-5">
+									<a href="" class="f1-m-3 cl0 hov-cl10 trans-03"  data-toggle="modal" data-target="#modal-video-01">
+										Karabakh is Azerbaijan 
+									</a>
+								</h5>
+
+								<span class="cl15">
+									<a href="" class="f1-s-4 cl8 hov-cl10 trans-03" data-toggle="modal" data-target="#modal-video-01">
+										by Shahin Agayev</a>
+									<span class="f1-s-3 m-rl-3">
+										-
+									</span>
+									<span class="f1-s-3">{% now "l, j F Y" %}</span>
+								</span>
+							</div>
+						</div>	
+					</div>
+
+
+
+                    <div class="p-b-55">
+                        <div class="how2 how2-cl4 flex-s-c m-b-35">
+                            <h3 class="f1-m-2 cl3 tab01-title">Xəbər başlıqları</h3>
+                        </div>
+
+                        <div>
+							{% for x in blok9 %}
+                            <div class="p-tb-16 p-rl-25 bg3">
+                                <h5 class="p-b-5">
+                                    <a href="page/{{x.id}}" class="f1-m-3 cl0 hov-cl10 trans-03">{{x.basliq | truncatechars:46 | truncatechars:46}}
+                                    </a>
+                                </h5>
+                                <span class="cl15">
+									<a href="page/{{x.id}}" class="f1-s-4 cl8 hov-cl10 trans-03">{{x.kateqoriya}}</a>
+                                    <span class="f1-s-3 m-rl-3">
+                                        -
+                                    </span>
+                                    <span class="f1-s-3">{{x.tarix}}</span>
+                                </span>
+                            </div>
+							{% endfor %}
+                        </div>	
+                    </div>
+                </div>
+            </div>
+		</div>
+	</div>
+</section>
+	
+	
+	
+	
+	
+	
+	<!-- Latest 3 col--> 
+	<section class="bg0 p-t-60 p-b-40">
+		<div class="container">
+			<div class="how2 how2-cl4 flex-s-c">
+				<h3 class="f1-m-2 cl3 tab01-title">
+					Xəbər Lenti
+				</h3>
+			</div>
+			<div class="row p-t-35 infinite-container">
+
+
+				{% for x in blok8 %}
+				<div class="col-sm-6 col-md-4 infinite-item">
+					<!-- Item latest -->	
+					<div class="m-b-45">
+						<a href="page/{{x.id}}" class="wrap-pic-w hov1 trans-03">
+							<img src="{{x.foto}}" alt="{{x.basliq}}">
+						</a>
+
+						<div class="p-t-16">
+							<h5 class="p-b-5">
+								<a target="_blank" href="page/{{x.id}}" class="f1-m-3 cl2 hov-cl10 trans-03">
+									{{x.basliq | truncatechars:46 | truncatechars:46}} 
+								</a>
+							</h5>
+
+							<span class="cl8">
+								<a href="#" class="f1-s-4 cl8 hov-cl10 trans-03">
+									{{x.kateqoriya}}
+								</a>
+
+								<span class="f1-s-3 m-rl-3">
+									-
+								</span>
+
+								<span class="f1-s-3">
+									{{x.tarix}}
+								</span>
+							</span>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+
+
+			</div>
+
+					{% if numbers.has_next %}
+						<a class="infinite-more-link" href="?page={{ numbers.next_page_number }}">More</a>
+					{% endif %}
+
+					<div class="loading" style="display: none;">
+						Loading...
+					</div>
+
+		</div>
+	</section>
+
+
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+	// Automatic Slideshow - change image every 4 seconds
+	var myIndex = 0;
+	carousel();
+	
+	function carousel() {
+	  var i;
+	  var x = document.getElementsByClassName("mySlides");
+	  for (i = 0; i < x.length; i++) {
+		x[i].style.display = "none";  
+	  }
+	  myIndex++;
+	  if (myIndex > x.length) {myIndex = 1}    
+	  x[myIndex-1].style.display = "block";  
+	  setTimeout(carousel, 4000);    
+	}
+	
+	// Used to toggle the menu on small screens when clicking on the menu button
+	function myFunction() {
+	  var x = document.getElementById("navDemo");
+	  if (x.className.indexOf("w3-show") == -1) {
+		x.className += " w3-show";
+	  } else { 
+		x.className = x.className.replace(" w3-show", "");
+	  }
+	}
+	
+	// When the user clicks anywhere outside of the modal, close it
+	var modal = document.getElementById('ticketModal');
+	window.onclick = function(event) {
+	  if (event.target == modal) {
+		modal.style.display = "none";
+	  }
+	}
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="pagination">
+    
+        <li class="previous disabled unavailable">
+            <a> « </a>
+        </li>
+        <li class="active">
+            <a>1</a>
+        </li>
+        <li>
+            <a href="">2</a>
+        </li>
+        
+        <li class="disabled">
+            <a>...</a>
+        </li>
+        <li>
+            <a href="">22</a>
+        </li>
+        <li class="next">
+            <a href="">»</a>
+        </li>
+    </ul>
+</div>
+
+
+
+
+
+
+
+<!-- <div  class="pagination">
+					
+					<li class="previous disabled unavailable">
+						<a> « </a>
+					</li>
+						
+					{% for i in page_range %}
+
+					
+					<a class="sehife" style="margin-left: 5px; " href="{{i}}">{{i}}</a>					
+					
+					
+
+					{% endfor %}
+
+					<li class="disabled">
+						<a>...</a>
+					</li>
+					<li>
+						<a class="active " style="margin-left: 5px; " href="">son</a>
+					</li>
+					<li class="next">
+						<a href="">»</a>
+					</li>
+				</div> -->
+				<!-- {{total_obj|json_script:"json-total"}}
+				<div class="spinner-border text-primary mt-2 not-visible" role="status" id="spinner">
+					<span class="sr-only">Loading...</span>
+				</div>
+				<div class="load-more__btn mt-3" id="btn">
+					<button type="button" class="btn btn-success">Load More Post</button>
+				</div>
+				<div class="alert alert-danger mt-2 not-visible" role="alert" id='alert'>
+					No more post to load!!
+				</div> -->

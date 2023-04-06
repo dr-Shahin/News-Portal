@@ -1,0 +1,35 @@
+{% extends 'main/layout.html' %}
+{% block title %}Axtarish{% endblock %}
+
+{% block content %}
+<div class="container">
+
+    {% if my_brend %}
+        <h1>Axtasi uzre neticeler: {{ data1 }}</h1>
+        <br>
+        <table class="table table-bordared table-hover">
+            <thead class="table-dark">
+                <th>№</th>
+                <th>Brend</th>
+                <th>Foto</th>
+                <th>Tarix</th>  
+            </thead>
+
+        <tbody>
+            {% for x in my_brend %}
+            <tr>
+            <td > {{ forloop.counter }}</td>
+            <td>{{ x.Brand }}</td>
+            <td><img style="width:90px; height:60px;" src="{{ x.Foto }}"></td>
+            <td>{{ x.Tarix }}</td>
+            </tr>
+        </tbody>
+            {% endfor %}
+
+    {% else %}
+        <h1> {{data1}}- adli mehsul tapilmadi...</h1> 
+    {% endif %}
+
+</div>
+
+{% endblock %}

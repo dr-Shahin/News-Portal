@@ -1,0 +1,459 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>
+		{% if news %} 
+		
+		{% for x in news %}
+		{{x.basliq}}
+		{% endfor %}
+		
+		{% else %} 
+		AzerNews - Azərbaycan xəbərləri, Biznes, Enerji, Təhlil 
+		{% endif %}
+	
+		</title>
+		
+		<meta name="description" content="News from Azerbaijan, Business, Energy, Analysis">
+		<meta name="keywords" content="{% if acar %} {{acar}} {% else %}AzerNews, Azərbaycan xəbərləri, Biznes, Enerji, Təhlil{% endif %}">
+		
+		<meta property="og:image" content="https://azernews.ml"/>
+		<!--<meta property="og:image:secure_url" content="" /> -->
+		<meta property="og:image:width" content="640" /> 
+		<meta property="og:image:height" content="442" />
+	
+		<meta property="og:url" content="https://azernews.ml/"/>
+		<meta property="og:title" content='{% if news %}{% for x in news %}{{x.basliq}}{% endfor %}{% else %}AzerNews - Azərbaycan xəbərləri, Biznes, Enerji, Təhlil{% endif %}'/>
+		
+		<meta property="og:description" content='Azernews.ml - Azərbaycanda və dünyada baş verən ən son xəbərlər'/>
+		<meta property="og:site_name" content="Azernews.ml"/>
+		<meta property="og:type" content="article"/>
+	
+		<meta property="fb:admins" content="ebilova"/>
+	
+		<!-- Schema.org markup for Google+ -->
+		<meta itemprop="name" content='Azərbaycandan və dünyadan xəbərlər - azernews.ml'/>
+		<meta itemprop="description" content="azernews.ml - Azərbaycanda və dünyada baş verən ən son xəbərlər"/>
+		<meta itemprop="image" content="https://azernews.ml/"/>
+	
+		<!-- Twitter Card data -->
+		<meta name="twitter:url" content="https://azernews.ml/" />
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:creator" content="@azernews" />
+		<meta name="twitter:title" content=" Azərbaycandan və dünyadan xəbərlər - Azernews.ml " />
+		<meta name="twitter:image" content="https://azernews.ml">   
+	
+		
+		
+	
+		
+		
+		<meta name="google-site-verification" content="">
+		<meta name="google-play-app" content="app-id=azernews.ml">
+		
+		
+		
+		
+		<link rel="dns-prefetch" href="//www.googletagmanager.com/">
+		<link rel="dns-prefetch" href="//www.gstatic.com/">
+		
+	
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		
+		
+		
+		 <!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-N7MM1JNSNQ"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+		
+		  gtag('config', 'G-N7MM1JNSNQ');
+		</script>
+		
+		
+		<style>
+			
+			.pagination { display: inline-block;}
+			.pagination a { color: black; float: left; padding: 8px 16px; text-decoration: none;}
+			.pagination a.active { background-color: #4CAF50; color: white;}
+			.pagination a:hover:not(.active) {background-color: #ddd;}
+		</style>
+	
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+
+<!--===============================================================================================-->	
+	
+<!--===============================================================================================-->	
+<link rel="icon" type="image/png" href="{% static 'images/icons/favicon.png' %}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/fontawesome-5.0.8/css/fontawesome-all.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/iconic/css/material-design-iconic-font.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animsition/css/animsition.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util.min.css' %}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+<!--===============================================================================================-->
+</head>
+
+<body class="animsition">
+	
+	<!-- Header -->
+	<header>
+		<!-- Header desktop -->
+		<div class="container-menu-desktop">
+			<div class="topbar">
+				<div class="content-topbar container h-100">
+					<div class="left-topbar">
+						<span class="left-topbar-item flex-wr-s-c">
+							<span>
+								{{temp}}°C, {{city}}
+							</span>
+
+							<img class="m-b-1 m-rl-8" src="{% static 'images/icons/icon-night.png' %}" alt="IMG">
+
+							<span>
+								{% now "l, j F Y" %}
+							</span>
+						</span>
+
+						<a href="{% url 'haqqimizda' %}" class="left-topbar-item">
+							Haqqımızda
+						</a>
+
+						<a href="{% url 'elaqe' %}" class="left-topbar-item">
+							Əlaqə
+						</a>
+
+						<a href="{% url 'register' %}" class="left-topbar-item">
+							Qeydiyyatdan keç
+						</a>
+
+						<a href="{% url 'login_user' %}" class="left-topbar-item">
+							Daxil ol
+						</a>
+					</div>
+
+					<div class="right-topbar">
+						<a href="https://www.facebook.com/">
+							<span class="fab fa-facebook-f"></span>
+						</a>
+
+						<a href="https://twitter.com/">
+							<span class="fab fa-twitter"></span>
+						</a>
+
+						<a href="https://www.pinterest.com/">
+							<span class="fab fa-pinterest-p"></span>
+						</a>
+
+						<a href="https://vimeo.com/">
+							<span class="fab fa-vimeo-v"></span>
+						</a>
+
+						<a href="https://youtube.com/">
+							<span class="fab fa-youtube"></span>
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- Header Mobile -->
+			<div class="wrap-header-mobile">
+				<!-- Logo moblie -->		
+				<div class="logo-mobile">
+					<a href="{% url 'index' %}"><img src="{% static 'images/azernews.png' %}" alt="Azernews.ml-LOGO"></a>
+				</div>
+
+				<!-- Button show menu -->
+				<div class="btn-show-menu-mobile hamburger hamburger--squeeze m-r--8">
+					<span class="hamburger-box">
+						<span class="hamburger-inner"></span>
+					</span>
+				</div>
+			</div>
+
+			<!-- Menu Mobile -->
+			<div class="menu-mobile">
+				<ul class="topbar-mobile">
+					<li class="left-topbar">
+						<span class="left-topbar-item flex-wr-s-c">
+							<span>
+								{{temp}}°C, {{city}}
+							</span>
+
+							<img class="m-b-1 m-rl-8" src="{% static 'images/icons/icon-night.png' %}" alt="IMG">
+
+							<span>
+								{% now "l, j F Y" %}
+							</span>
+						</span>
+					</li>
+
+					<li class="left-topbar">
+						<a href="{% url 'haqqimizda' %}" class="left-topbar-item">
+							Haqqımızda
+						</a>
+
+						<a href="{% url 'elaqe' %}" class="left-topbar-item">
+							Əlaqə
+						</a>
+
+						<a href="{% url 'register' %}" class="left-topbar-item">
+							Qeydiyyatdan keç
+						</a>
+
+						<a href="{% url 'login_user' %}" class="left-topbar-item">
+							Daxil ol
+						</a>
+					</li>
+
+					<li class="right-topbar">
+						<a href="https://www.facebook.com/">
+							<span class="fab fa-facebook-f"></span>
+						</a>
+
+						<a href="https://twitter.com/">
+							<span class="fab fa-twitter"></span>
+						</a>
+
+						<a href="#">
+							<span class="fab fa-pinterest-p"></span>
+						</a>
+
+						<a href="https://pinterest.com/">
+							<span class="fab fa-vimeo-v"></span>
+						</a>
+
+						<a href="https://youtube.com/">
+							<span class="fab fa-youtube"></span>
+						</a>
+					</li>
+				</ul>
+				<ul class="main-menu-m">
+					<li>
+						<a href="{% url 'index' %}">Əsas Səhifə</a>
+						<ul class="sub-menu-m">
+							<li><a href="{% url 'xeberlenti' %}">Xəbər lenti</a></li>
+							<li><a href="{% url 'elaqe' %}">Əlaqə</a></li>
+							<li><a href="{% url 'haqqimizda' %}">Haqqımızda</a></li>
+						</ul>
+
+						<span class="arrow-main-menu-m">
+							<i class="fa fa-angle-right" aria-hidden="true"></i>
+						</span>
+					</li>
+					
+					<li>
+						<a href="{% url 'index' %}">Xeberler</a>
+						<ul class="sub-menu-m">
+							
+							{% for x in blok01 %}
+								<li><a href="{% url 'kateqoriya' x.id %}">{{x.kateqoriya}}</a></li>
+							{% endfor %}
+						</ul>
+
+						<span class="arrow-main-menu-m">
+							<i class="fa fa-angle-right" aria-hidden="true"></i>
+						</span>
+					</li>
+				</ul>
+			</div>
+
+			<div class="wrap-logo container">
+				<!-- Logo desktop -->		
+				<div class="logo">
+					<a href="{% url 'index' %}"><img src="https://technext.github.io/magnews2/images/icons/logo-01.png" alt="LOGO"></a>
+				</div>	
+
+				<!-- Banner -->
+				<div class="banner-header">
+					<a href="{% url 'index' %}"><img src="https://technext.github.io/magnews2/images/banner-01.jpg" alt="IMG"></a>
+				</div>
+			</div>	
+
+			<div class="wrap-main-nav">
+				<div class="main-nav">
+					<!-- Menu desktop -->
+					<nav class="menu-desktop">
+						<a class="logo-stick" href="{% url 'index' %}">
+							<img src="{% static 'images/azernews.png' %}" alt="Azernews.ml LOGO">
+						</a>
+
+						<ul class="main-menu">
+							<li class="main-menu-active">
+								<a >Əsas Səhifə</a>
+								<ul class="sub-menu">
+									<li><a href="{% url 'xeberlenti' %}">Xəbər lenti</a></li>
+									<li><a href="{% url 'elaqe' %}">Əlaqə</a></li>
+									<li><a href="{% url 'haqqimizda' %}">Haqqımızda</a></li>
+								</ul>
+							</li>
+
+							<li class="mega-menu-item">
+								<a>Xəbərlər</a>
+								<div class="sub-mega-menu">
+									<div class="nav flex-column nav-pills" role="tablist">
+										<a class="nav-link active" data-toggle="pill" href="#" role="tab">Xeber lenti</a>
+										
+										{% for x in blok01 %}
+											<a class="nav-link" data-toggle="pill" href="{% url 'kateqoriya' x.id %}" role="tab">{{x.kateqoriya}}</a>
+										{% endfor %}
+									</div>
+
+									<div class="tab-content">
+										<div class="tab-pane show active" id="news-0" role="tabpanel">
+											<div class="row">
+
+												{% for x in blok1 %}
+												<div class="col-3">
+													<!-- Item post -->	
+													<div>
+														<a href="{% url 'page' x.id %}" class="wrap-pic-w hov1 trans-03">
+															<img  src="{{x.foto}}" alt="IMG">
+														</a>
+														<div class="p-t-10">
+															<h5 class="p-b-5">
+																<a href="{% url 'page' x.id %}" class="f1-s-5 cl3 hov-cl10 trans-03">{{x.basliq | truncatechars:46}}</a>
+															</h5>
+
+															<span class="cl8">
+																<a href="{% url 'kateqoriya' x.id %}" class="f1-s-6 cl8 hov-cl10 trans-03">{{x.kateqoriya}}</a>
+																<span class="f1-s-3 m-rl-3">
+																	-
+																</span>
+																<span class="f1-s-3">
+																	{{x.tarix}}
+																</span>
+															</span>
+														</div>
+													</div>
+												</div>
+												{% endfor %}
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+
+
+							
+
+							{% for x in blok01 %}
+							<li class="mega-menu-item">
+								<a href="{% url 'kateqoriya' x.id %}">{{x.kateqoriya}} </a>
+
+								<div class="sub-mega-menu">
+									<div class="nav flex-column nav-pills" role="tablist">
+										<a class="nav-link active" data-toggle="pill" href="#" role="tab">Xeber lenti</a>
+									</div>
+									<div class="tab-pane" id="news-1" role="tabpanel">
+										<div class="row">
+											
+											
+											<div class="col-3">
+												<!-- Item post -->	
+												<div>
+													<a href="{% url 'page' x.id %}" class="wrap-pic-w hov1 trans-03">
+														<img src="{{x.foto}}" alt="IMG">
+													</a>
+
+													<div class="p-t-10">
+														<h5 class="p-b-5">
+															<a href="{% url 'page' x.id %}" class="f1-s-5 cl3 hov-cl10 trans-03">{{x.basliq | truncatechars:46}}</a>
+														</h5>
+														<span class="cl8">
+															<a  class="f1-s-6 cl8 hov-cl10 trans-03">{{x.kateqoriya}}</a>
+															<span class="f1-s-3 m-rl-3">
+																-
+															</span>
+															<span class="f1-s-3">
+																{{x.tarix}}
+															</span>
+														</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							{% endfor %}
+						</ul>
+					</nav>
+				</div>
+			</div>	
+		</div>
+	</header>
+
+
+
+{% block content %} {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="bg11">
+	<div class="container size-h-4 flex-c-c p-tb-15">
+		<span class="f1-s-1 cl0 txt-center">
+			<a href="https://agayev.ml/" class="f1-s-1 cl10 hov-link1"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+				Bütün Hüquqlar Qorunur &copy;<script> document.write(new Date().getFullYear());</script> | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://shahinagayev.tk/" target="_blank">@Shahin Agayev</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+		</span>
+      </div> 
+    </div>
+  </section>
+  <div class="btn-back-to-top" id="myBtn">
+	<span class="symbol-btn-back-to-top">
+		<span class="fas fa-angle-up"></span>
+	</span>
+	</div>
+
+
+</div>
+
+
+<!--===============================================================================================-->	
+<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+<script src="{% static 'vendor/animsition/js/animsition.min.js' %}"></script>
+<!--===============================================================================================-->
+<script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>
